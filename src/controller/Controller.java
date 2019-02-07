@@ -13,8 +13,8 @@ public class Controller {
 	@SuppressWarnings("unused")
 	private static IMovingViolationsManager  manager = new MovingViolationsManager();
 	
-	public static void loadMovingViolations() {
-		manager.loadMovingViolations();
+	public static void loadMovingViolations(String path) {
+		manager.loadMovingViolations(path);
 		
 	}
 	

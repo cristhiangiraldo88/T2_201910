@@ -22,7 +22,7 @@ public class MovingViolationsManagerView
 			switch(option)
 			{
 				case 1:
-					Controller.loadMovingViolations();
+					Controller.loadMovingViolations("data/Moving_Violations_Issued_in_January_2018.csv");
 					break;
 					
 				case 2:
@@ -32,7 +32,7 @@ public class MovingViolationsManagerView
 					System.out.println("Se encontraron "+ violationsByCodeList.getSize() + " elementos");
 					for (VOMovingViolations violations : violationsByCodeList) 
 					{
-						System.out.println(violations.objectId() + " " + violations.getLocation() + " " + violations.getTicketIssueDate()+ " " + violations.getTotalPaid() + " " + violations.getAccidentIndicator()+ " " + violations.getViolationDescription());;
+						System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
 					}
 					break;
 					
@@ -43,7 +43,7 @@ public class MovingViolationsManagerView
 					System.out.println("Se encontraron "+ violationsByAccidentsList.getSize() + " elementos");
 					for (VOMovingViolations violations : violationsByAccidentsList) 
 					{
-						System.out.println(violations.objectId() + " " + violations.getLocation() + " " + violations.getTicketIssueDate()+ " " + violations.getTotalPaid() + " " + violations.getAccidentIndicator()+ " " + violations.getViolationDescription());;
+						System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
 					}
 					break;
 											

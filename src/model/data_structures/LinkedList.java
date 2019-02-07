@@ -45,4 +45,34 @@ public class LinkedList<T> implements ILinkedList<T> {
 		return null;
 	}
 
+	@Override
+	public T darObj(int pos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T darPrimer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int darTamanho() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean siguiente() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean anterior() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

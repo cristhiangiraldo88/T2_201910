@@ -1,20 +1,23 @@
 package model.logic;
 
-import com.sun.tools.javac.util.List;
 
 import api.IMovingViolationsManager;
 import model.vo.VOMovingViolations;
 import model.data_structures.ILinkedList;
 import model.data_structures.LinkedList;
+import model.data_structures.Node;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Time;
 import java.time.Clock;
 
-import com.opencsv.*;
-import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+
+
 
 
 public class MovingViolationsManager implements IMovingViolationsManager {
@@ -27,8 +30,29 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 //		listaViolaciones= new CsvToBeanBuilder(new FileReader(movingViolationsFile)).withType(VOMovingViolations.class).build().parse();
 		System.out.println("ejecuto");
 		try {
+					
 					System.out.println("empexando"+System.currentTimeMillis());
-					List<VOMovingViolations> beans = (List<VOMovingViolations>) new CsvToBeanBuilder(new FileReader(new File ("data/Moving_Violations_Issued_in_January_2018.csv"))).withType(VOMovingViolations.class).build().parse();
+					
+					CSVReader reader = new CSVReader (new FileReader (movingViolationsFile));
+					String [] nextLine;
+					try {
+						reader.readNext();
+						while ((nextLine = reader.readNext()) != null) {
+							
+
+							VOMovingViolations mV =new VOMovingViolations(nextLine[0],nextLine[1],nextLine[2],nextLine[3],nextLine[4],nextLine[5],nextLine[6]
+													,nextLine[7],nextLine[8],nextLine[9],nextLine[10],nextLine[11],nextLine[12],nextLine[13]
+													,nextLine[14],nextLine[15],nextLine[16]);
+							
+							Node<VOMovingViolations> nodo = new Node<VOMovingViolations>(mV);
+							listaViolaciones.agregar(nodo);
+						}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+						
+						
 					System.out.println("done biach"+System.currentTimeMillis());
 				} catch (IllegalStateException e) {
 					// TODO Auto-generated catch block
@@ -42,14 +66,14 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 		
 	@Override
 	public LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator) {
 		// TODO Auto-generated method stub
-		return null;
+		return (LinkedList<VOMovingViolations>) listaViolaciones;
 	}	
 
 

@@ -65,8 +65,13 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 	public LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode) {
 		LinkedList<VOMovingViolations> resp = new LinkedList<>();
 		for(int i =0; i <listaViolaciones.getCounter();i++) {
-			if(listaViolaciones.get(i).getViolationCode().equals(violationCode)) {
-				resp.add(listaViolaciones.get(i));
+			if(listaViolaciones.get(i)
+					!=null) {
+				if(listaViolaciones.get(i)
+						.getViolationCode().
+						equals(violationCode)) {
+					resp.add(listaViolaciones.get(i));
+				}
 			}
 		}
 		return resp;
@@ -76,9 +81,15 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator) {
 		LinkedList<VOMovingViolations> resp = new LinkedList<>();
 		for(int i =0; i <listaViolaciones.getCounter();i++) {
-			if(listaViolaciones.get(i).getAccidentId().equals(accidentIndicator)) {
-				resp.add(listaViolaciones.get(i));
+			if(listaViolaciones.get(i)
+					!=null) {
+				if(listaViolaciones.get(i)
+						.getAccidentId().
+						equals(accidentIndicator)) {
+					resp.add(listaViolaciones.get(i));
+				}
 			}
+		
 		}
 		return resp;
 	}	

@@ -7,7 +7,11 @@ import model.vo.VOMovingViolations;
 
 public class LinkedList<T> implements ILinkedList<T> {
 
-	private static int counter;
+	/**
+	 * Esta implementación de las listas encadenadas se obtuvo de crunchify
+	 * Enlace: https://crunchify.com/how-to-implement-a-linkedlist-class-from-scratch-in-java/
+	 */
+	private static int tamano;
 	private Node head;
  
 	// Default constructor
@@ -43,15 +47,15 @@ public class LinkedList<T> implements ILinkedList<T> {
 	}
  
 	public int getCounter() {
-		return counter;
+		return tamano;
 	}
  
 	private static void incrementCounter() {
-		counter++;
+		tamano++;
 	}
  
 	private void decrementCounter() {
-		counter--;
+		tamano--;
 	}
  
 	// inserts the specified element at the specified position in this list
@@ -144,11 +148,38 @@ public class LinkedList<T> implements ILinkedList<T> {
 	}
 	
 	
+	/**
+	 * Iterador sacado de: https://stackoverflow.com/questions/33072986/iterator-for-a-linkedlist
+	 */
+	 public Iterator<T> iterator() {
+	        return new Iterator<T>() {
 
-	@Override
-	public Iterator<T> iterator() {
-		return this.iterator();
-	}
+	            Node current = head;
+
+	            @Override
+	            public boolean hasNext() {
+	                return current != null;
+	            }
+
+	            @Override
+	            public T next() {
+	                if (hasNext()) {
+	                    T data = (T) current.getDato();
+	                    current = current.getSiguiente();
+	                    return data;
+	                }
+	                return null;
+	            }
+
+	            @Override
+	            public void remove() {
+	                throw new UnsupportedOperationException("Remove not implemented.");
+	            }
+
+	        };
+
+	    }
+	
 
 
 }

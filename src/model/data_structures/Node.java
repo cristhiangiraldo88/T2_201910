@@ -3,12 +3,12 @@ package model.data_structures;
 public class Node<T> {
 
 	private Node<T> siguiente;
-	private Node<T> anterior;
+//	private Node<T> anterior;
 	private T dato;
 
 	public Node(T datoo) {
 		siguiente = null;
-		anterior = null;
+//		anterior = null;
 		dato = datoo;
 	}
 
@@ -16,23 +16,23 @@ public class Node<T> {
 		siguiente = sig;
 	}
 
-	public void setAnterior(Node<T> ant) {
-		anterior = ant;
-	}
+//	public void setAnterior(Node<T> ant) {
+//		anterior = ant;
+//	}
 
 	public void setDato(T dat) {
 		dato = dat;
 	}
 
-	public Node<T> darSiguiente() {
+	public Node<T> getSiguiente() {
 		return siguiente;
 	}
 
-	public Node<T> darAnterior() {
-		return anterior;
-	}
+//	public Node<T> getAnterior() {
+//		return anterior;
+//	}
 
-	public T darDato() {
+	public T getDato() {
 		return dato;
 	}
 }

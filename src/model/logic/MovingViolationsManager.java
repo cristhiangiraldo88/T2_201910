@@ -1,15 +1,23 @@
 package model.logic;
 
+import com.sun.tools.javac.util.List;
+
 import api.IMovingViolationsManager;
 import model.vo.VOMovingViolations;
+import model.data_structures.ILinkedList;
 import model.data_structures.LinkedList;
+import com.sun.*;
+
 
 public class MovingViolationsManager implements IMovingViolationsManager {
 
 	
+	ILinkedList<VOMovingViolations> listaViolaciones;
+	
+	
 	public void loadMovingViolations(String movingViolationsFile){
-		// TODO Auto-generated method stub
-		
+		List<VOMovingViolations> result = new CsvToBeanBuilder(FileReader(movingViolationsFile)).withType(VOMovingViolations.class).build().parse();
+		//		List<VOMovingViolations> beans = new CsvToBeanBuilder(FileReader("yourfile.csv")).withType(Visitors.class).build().parse();
 	}
 
 		

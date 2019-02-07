@@ -10,5 +10,10 @@ package model.data_structures;
 public interface ILinkedList<T> extends Iterable<T> {
 
 	Integer getSize();
-
+	public void agregar(Node<T> obj) ;
+	public T darObj(int pos);
+	public T darPrimer();
+	public int darTamanho();
+	public boolean siguiente();
+	public boolean anterior();
 }

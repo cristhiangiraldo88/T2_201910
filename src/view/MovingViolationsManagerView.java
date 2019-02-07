@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import controller.Controller;
 import model.data_structures.ILinkedList;
+import model.data_structures.LinkedList;
 import model.vo.VOMovingViolations;
 
 public class MovingViolationsManagerView 

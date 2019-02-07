@@ -30,7 +30,7 @@ public class MovingViolationsManagerView
 					System.out.println("Ingrese el código de la infracción:");
 					String violationCode = sc.next();
 					LinkedList<VOMovingViolations> violationsByCodeList = Controller.getMovingViolationsByViolationCode (violationCode);
-					System.out.println("Se encontraron "+ violationsByCodeList.getSize() + " elementos");
+					System.out.println("Se encontraron "+ violationsByCodeList.getCounter() + " elementos");
 					for (VOMovingViolations violations : violationsByCodeList) 
 					{
 						System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());
@@ -41,7 +41,7 @@ public class MovingViolationsManagerView
 					System.out.println("Ingrese el indicador de Accidente que quiere consulta (No/Yes):");
 					String accidentIndicator = sc.next();
 					LinkedList<VOMovingViolations> violationsByAccidentsList = Controller.getMovingViolationsByAccident (accidentIndicator);
-					System.out.println("Se encontraron "+ violationsByAccidentsList.getSize() + " elementos");
+					System.out.println("Se encontraron "+ violationsByAccidentsList.getCounter() + " elementos");
 					for (VOMovingViolations violations : violationsByAccidentsList) 
 					{
 						System.out.println(violations.getObjectId() + " " + violations.getLocation() + " " + violations.getTicketIssue()+ " " + violations.getPaid() + " " + violations.getAccidentId()+ " " + violations.getViolationDesc());

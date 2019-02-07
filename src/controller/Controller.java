@@ -19,10 +19,10 @@ public class Controller {
 	}
 	
 	public static LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode) {
-		return null;
+		return manager.getMovingViolationsByViolationCode(violationCode);
 	}
 	
 	public static LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator) {
-		return null;
+		return manager.getMovingViolationsByAccident(accidentIndicator);
 	}
 }

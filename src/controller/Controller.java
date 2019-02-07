@@ -14,6 +14,7 @@ public class Controller {
 	private static IMovingViolationsManager  manager = new MovingViolationsManager();
 	
 	public static void loadMovingViolations() {
+		manager.loadMovingViolations();
 		
 	}
 	

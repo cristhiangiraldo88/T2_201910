@@ -6,7 +6,15 @@ import api.IMovingViolationsManager;
 import model.vo.VOMovingViolations;
 import model.data_structures.ILinkedList;
 import model.data_structures.LinkedList;
-import com.sun.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.sql.Time;
+import java.time.Clock;
+
+import com.opencsv.*;
+import com.opencsv.bean.CsvToBeanBuilder;
 
 
 public class MovingViolationsManager implements IMovingViolationsManager {
@@ -16,8 +24,19 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 	
 	
 	public void loadMovingViolations(String movingViolationsFile){
-		List<VOMovingViolations> result = new CsvToBeanBuilder(FileReader(movingViolationsFile)).withType(VOMovingViolations.class).build().parse();
-		//		List<VOMovingViolations> beans = new CsvToBeanBuilder(FileReader("yourfile.csv")).withType(Visitors.class).build().parse();
+//		listaViolaciones= new CsvToBeanBuilder(new FileReader(movingViolationsFile)).withType(VOMovingViolations.class).build().parse();
+		System.out.println("ejecuto");
+		try {
+					System.out.println("empexando"+System.currentTimeMillis());
+					List<VOMovingViolations> beans = (List<VOMovingViolations>) new CsvToBeanBuilder(new FileReader(new File ("data/Moving_Violations_Issued_in_January_2018.csv"))).withType(VOMovingViolations.class).build().parse();
+					System.out.println("done biach"+System.currentTimeMillis());
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	}
 
 		

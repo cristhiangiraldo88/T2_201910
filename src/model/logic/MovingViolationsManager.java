@@ -30,9 +30,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 //		listaViolaciones= new CsvToBeanBuilder(new FileReader(movingViolationsFile)).withType(VOMovingViolations.class).build().parse();
 		System.out.println("ejecuto");
 		try {
-					
-					System.out.println("empexando"+System.currentTimeMillis());
-					
+					listaViolaciones= new LinkedList<>();
 					CSVReader reader = new CSVReader (new FileReader (movingViolationsFile));
 					String [] nextLine;
 					try {
@@ -46,6 +44,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 							
 							Node<VOMovingViolations> nodo = new Node<VOMovingViolations>(mV);
 							listaViolaciones.agregar(nodo);
+							System.out.println("mapeando");
 						}
 					} catch (IOException e) {
 						// TODO Auto-generated catch block

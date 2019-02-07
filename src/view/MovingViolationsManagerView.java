@@ -23,6 +23,7 @@ public class MovingViolationsManagerView
 			{
 				case 1:
 					Controller.loadMovingViolations("data/Moving_Violations_Issued_in_January_2018.csv");
+					System.out.println("Listo");
 					break;
 					
 				case 2:
